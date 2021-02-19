@@ -15,6 +15,7 @@ const AppRoutes: React.FC = () => (
       cardStyle: { backgroundColor: '#312e38' },
     }}
   >
+    {/* Fluxo de criação */}
     <App.Screen name="Dashboard" component={Dashboard} />
     <App.Screen name="CreateAppointment" component={CreateAppointment} />
     <App.Screen name="AppointmentCreated" component={AppointmentCreated} />
