@@ -29,6 +29,8 @@
     "prettier"
   ],
   "rules": {
+    "no-console": "off",
+    "camelcase": "off",
     "prettier/prettier": "error",
     "no-use-before-define": "off",
     "react-hooks/rules-of-hooks": "error",

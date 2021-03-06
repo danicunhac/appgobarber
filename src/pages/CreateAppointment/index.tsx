@@ -1,7 +1,9 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { useNavigation, useRoute } from '@react-navigation/native';
+import Calendar from '@gobarber/react-native-calendar';
 import Icon from 'react-native-vector-icons/Feather';
 
+import { View } from 'react-native';
 import api from '../../services/api';
 import { useAuth } from '../../hooks/auth';
 
@@ -16,6 +18,8 @@ import {
   ProviderContainer,
   ProviderAvatar,
   ProviderName,
+  Title,
+  calendarColors,
 } from './styles';
 
 interface RouteParams {
@@ -28,6 +32,23 @@ export interface Provider {
   avatar_url: string;
 }
 
+const weekNames = ['D', 'S', 'T', 'Q', 'Q', 'S', 'S'];
+
+const monthNames = [
+  'Janeiro',
+  'Fevereiro',
+  'Março',
+  'Abril',
+  'Maio',
+  'Junho',
+  'Julho',
+  'Agosto',
+  'Setembro',
+  'Outubro',
+  'Novembro',
+  'Dezembro',
+];
+
 const CreateAppointment: React.FC = () => {
   const { user } = useAuth();
   const route = useRoute();
@@ -35,6 +56,7 @@ const CreateAppointment: React.FC = () => {
 
   const routeParams = route.params as RouteParams;
 
+  const [selectedDate, setSelectedDate] = useState(new Date());
   const [providers, setProviders] = useState<Provider[]>([]);
   const [selectedProvider, setSelectedProvider] = useState(
     routeParams.providerId,
@@ -54,6 +76,12 @@ const CreateAppointment: React.FC = () => {
     setSelectedProvider(providerId);
   }, []);
 
+  const handleDateChange = useCallback((date: Date) => {
+    if (date) {
+      setSelectedDate(date);
+    }
+  }, []);
+
   return (
     <Container>
       <Header>
@@ -63,7 +91,7 @@ const CreateAppointment: React.FC = () => {
 
         <HeaderTitle>Cabeleireiros</HeaderTitle>
 
-        <UserAvatar source={{ uri: user.avatar_url }}></UserAvatar>
+        <UserAvatar source={{ uri: user.avatar_url }} />
       </Header>
 
       <ProvidersListContainer>
@@ -85,6 +113,16 @@ const CreateAppointment: React.FC = () => {
           )}
         />
       </ProvidersListContainer>
+      <View style={{ padding: 16 }}>
+        <Title>Escolha a data</Title>
+        <Calendar
+          onSelectDate={handleDateChange}
+          enabledPastDate={false}
+          weekNames={weekNames}
+          monthNames={monthNames}
+          colors={calendarColors}
+        />
+      </View>
     </Container>
   );
 };

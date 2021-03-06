@@ -5,12 +5,34 @@ import { FlatList, RectButton } from 'react-native-gesture-handler';
 import { Provider } from '.';
 
 interface ProviderNameProps {
-  selected: Boolean;
+  selected: boolean;
 }
 
 interface ProviderContainerProps {
-  selected: Boolean;
+  selected: boolean;
 }
+
+export const calendarColors = {
+  week: {
+    text: '#ff900',
+  },
+  background: '#28262e',
+  header: { background: '#3e3b47', text: '#f4ede8' },
+  day: {
+    enabled: {
+      background: '#3e3b47',
+      text: '#f4ede8',
+    },
+    disabled: {
+      background: '#28262e',
+      text: '#3e3b47',
+    },
+    highlight: {
+      background: '#ff9000',
+      text: '#28262e',
+    },
+  },
+};
 
 export const Container = styled.View`
   flex: 1;
@@ -70,4 +92,11 @@ export const ProviderName = styled.Text<ProviderNameProps>`
   font-family: 'RobotoSlab-Medium';
   font-size: 16px;
   color: ${props => (props.selected ? '#232129' : '#f4ede8')};
+`;
+
+export const Title = styled.Text`
+  font-family: 'RobotoSlab-Medium';
+  color: #f4ede8;
+  font-size: 24px;
+  margin: 10px auto;
 `;

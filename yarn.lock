@@ -748,6 +748,11 @@
   resolved "https://registry.yarnpkg.com/@emotion/unitless/-/unitless-0.7.5.tgz#77211291c1900a700b8a78cfafda3160d76949ed"
   integrity sha512-OWORNpfjMsSSUBVrRBVGECkhWcULOAJz9ZW8uK9qgxD+87M7jHRcvh/A96XXNhXTLmKcoYSQtBEX7lHMO7YRwg==
 
+"@gobarber/react-native-calendar@^0.1.6":
+  version "0.1.6"
+  resolved "https://registry.yarnpkg.com/@gobarber/react-native-calendar/-/react-native-calendar-0.1.6.tgz#3cb478ddc73c216e06fddc55826acbc750c9d571"
+  integrity sha512-XdEo/mI5G3j/+8kQr3CX8X9OCysw/apYz99W0AykEs3NUsgmjE+7qBqUfT/52IIu5isCOWqwRVTAC7IsgnRXxQ==
+
 "@hapi/address@2.x.x":
   version "2.1.4"
   resolved "https://registry.yarnpkg.com/@hapi/address/-/address-2.1.4.tgz#5d67ed43f3fd41a69d4b9ff7b56e7c0d1d0a81e5"
